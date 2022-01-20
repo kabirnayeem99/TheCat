@@ -7,7 +7,7 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import dagger.hilt.android.lifecycle.HiltViewModel
-import io.github.kabirnayeem99.thecat.data.repository.CatPagingSource
+import io.github.kabirnayeem99.thecat.data.repository.CatPagingSourceRepository
 import io.github.kabirnayeem99.thecat.domain.entity.Cat
 import io.github.kabirnayeem99.thecat.domain.repository.CatRepository
 import kotlinx.coroutines.Job
@@ -21,7 +21,7 @@ import javax.inject.Inject
 @HiltViewModel
 class CatViewModel @Inject constructor(
     private val repo: CatRepository,
-    private val pagingSource: CatPagingSource
+    private val pagingSourceRepository: CatPagingSourceRepository
 ) : ViewModel() {
 
     private val _catListUiState = MutableStateFlow(CatListUiState())
@@ -29,7 +29,7 @@ class CatViewModel @Inject constructor(
 
     val catListFlow: Flow<PagingData<Cat>> =
         Pager(config = PagingConfig(pageSize = 10, prefetchDistance = 2),
-            pagingSourceFactory = { pagingSource }
+            pagingSourceFactory = { pagingSourceRepository }
         ).flow.cachedIn(viewModelScope)
 
     private var fetchCatListJob: Job? = null

@@ -3,15 +3,13 @@ package io.github.kabirnayeem99.thecat.data.repository
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import io.github.kabirnayeem99.thecat.data.apiService.CatApiService
-import io.github.kabirnayeem99.thecat.data.dto.mapper.toCatList
+import io.github.kabirnayeem99.thecat.data.dataSource.CatRemoteDataSource
 import io.github.kabirnayeem99.thecat.domain.entity.Cat
-import retrofit2.await
 import javax.inject.Inject
 
 private const val TAG = "CatPagingSource"
 
-class CatPagingSource @Inject constructor(private val service: CatApiService) :
+class CatPagingSourceRepository @Inject constructor(private val dataSource: CatRemoteDataSource) :
     PagingSource<Int, Cat>() {
     override fun getRefreshKey(state: PagingState<Int, Cat>): Int? {
         return null
@@ -20,7 +18,7 @@ class CatPagingSource @Inject constructor(private val service: CatApiService) :
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Cat> {
         val pageNumber = params.key ?: 1
         return try {
-            val catList = service.getCatBreeds(params.loadSize, pageNumber).await().toCatList()
+            val catList = dataSource.getCats(params.loadSize, pageNumber)
             Log.d(TAG, "load: catList -> $catList")
             LoadResult.Page(
                 data = catList,
