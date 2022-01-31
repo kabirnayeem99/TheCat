@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: io.coil-kt:coil:1.4.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/af558aba076c56603699830f082bb506/transformed/jetified-coil-1.4.0/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-3/af558aba076c56603699830f082bb506/transformed/jetified-coil-1.4.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/af558aba076c56603699830f082bb506/transformed/jetified-coil-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b79f6ef2ca65facddd306c4774e7fd2f/transformed/jetified-coil-1.4.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/b79f6ef2ca65facddd306c4774e7fd2f/transformed/jetified-coil-1.4.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/b79f6ef2ca65facddd306c4774e7fd2f/transformed/jetified-coil-1.4.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.coil-kt/coil/1.4.0/90dc3c7b089dfad01c9ca84dde26cb28d7afff59/coil-1.4.0-javadoc.jar!/" />
